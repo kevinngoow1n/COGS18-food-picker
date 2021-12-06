@@ -1,0 +1,193 @@
+Sort of PseudoCode -- just my thought process (PLANNING)
+
+import(random)
+
+def welcome():
+    print("Huh? Oh, sorry, I was just eating this amazing dish from McDonald's called a McChicken! Have you ever had it before? It is truly amazing! I was planning to go get some more did you want some? Oh...you came to me to look for some food? Ok, let's get started, answer a few questions and I can help pick something to eat for you!")
+
+food = {"north_american_oceania" : ["pizza", "hot dogs", "burgers", "steak", "fried chicken", "pancakes", "waffles", "eggs benedict", "barbecue", "mac and cheese", "sandwiches", "clam chowder", "salad", "french fries", "french toast", "all american breakfast", "poutine", "corn dogs", "cereal", "avocado toast", "wings"],
+"european" : ["pasta", "calzone", "pizza", "crossiant", "fondue", "risotto", "gyros", "goulash", "pierogi", "pastries", "paella", "fish and chips", "poke", "spam musubi"],
+"asian" : ["pad thai", "pho", "pad see ew", "chicken satay", "ramen", "fried rice", "chow mein", "dumplings", "katsu", "curry", "sushi", "teriyaki chicken", "bibimbap", "kimbap", "yakitori", "japanese bbq", "korean bbq", "chinese takeout", "dim sum", "hot pot", "biriyani", "butter chicken", "naan", "dosa", "paneer"],
+"south_american" : ["tacos", "burritos", "tortas", "mole", "empanadas", "tamales", "chimichanga", "enchiladas", "quesadillas", "tostadas", "nachos"],
+"african" : ["chicken or beef stew", "fish or chicken curry", "suuqaar with rice/pasta", "sambusa", "nafaqa", "bajiya", "chapati", "fufu"]}
+
+
+def boba():
+    print("Be honest, are you craving food or could boba satisfy the need?")
+    print("1 for boba
+            2 for food")
+    boba_value = input
+    if boba_rating == 1:
+        return "go get boba then lol"
+    elif boba_rating == 2:
+        move on to next question
+    else:
+        return "please enter in a 1 or 2"
+       
+       
+def continent():
+    print("If you could go to any continent in the world, where would you like to go to?")
+    continent_value = input
+    if continent_value == "north america" or "oceania":
+        select key == "north_american_oceania" from food and store as continent_food
+    elif continent_value == "european":
+        select key == "european" from food and store as continent_food
+    elif continent_value == "asian":
+        select key == "asian" from food and store as continent_food
+    elif continent_value == "south america":
+        select key == "south_american" from food and store as continent_food
+    elif continent_value == "african":
+        select key == "africa" from food and store as continent_food
+    else:
+        return "please input a continent (north america, oceania, european, asian, south america, africa)"
+        
+        
+def hungry():
+    ## determines fast food or restaurant
+    print("On a scale of 1 to 10 with 1 being not hungry and 10 being ravaging, how hungry are you?")
+    hungry_food = [empty list]
+    low_hungry = [list of low speed food]
+    high_hungry = [list of high speed food]
+    hungry_value = input
+    if hungry_value <= 5 and hungry_value > 0:
+        for i in low_hungry:
+            if i in continent_food:
+                hungry_food.append(i)
+    elif hungry_value >= 6 and hungry_value <= 10:
+        for i in high_hungry:
+            if i in continent_food:
+                hungry_food.append(i)        
+    else:
+        return "please select a number from 1 to 10"    
+    
+def price():
+    ## determines fast food or restaurant
+    print("On a scale of 1 to 10 with 1 being the lowest and 10 being the highest, how much would you be willing to spend on your food today?")
+    price_food = [empty list]
+    low_price = [list of low cost food]
+    high_price = [list of high cost food]
+    price_value = input
+    if price_value <= 5 and price_value > 0:
+        for i in low_price:
+            if i in hungry_food:
+                price_food.append(i)
+    elif price_value >= 6 and price_value <= 10:
+        for i in high_price:
+            if i in hungry_food:
+                price_food.append(i)        
+    else:
+        return "please select a number from 1 to 10"
+
+
+def diet():
+    print("Are you following any diets? If yes, which one? keto, paleo, vegetarian, vegan, mediterranean")
+    diet_food = [empty list]
+    keto_diet = [list of keto food]
+    paleo_diet = [list of paleo food]
+    vegetarian_diet = [list of vegetarian food]
+    vegan_diet = [list of vegan food]
+    mediterranean_diet = [list of mediterranean food]
+    diet_value = input
+    if diet_value == "keto":
+        for i in keto_diet:
+            if i in price_food:
+                diet_food.append(i)
+    elif diet_value == "paleo":
+        for i in paleo_diet:
+            if i in price_food:
+                diet_food.append(i)    
+    elif diet_value == "vegetarian":
+        for i in vegetarian_diet:
+            if i in price_food:
+                diet_food.append(i)
+    elif diet_value == "vegan":
+        for i in vegan_diet:
+            if i in price_food:
+                diet_food.append(i)
+    elif diet_value == "mediterranean": ## is close to might be better than ==
+        for i in mediterranean_diet:
+            if i in price_food:
+                diet_food.append(i)
+    elif diet_value == "yes": ## not sure
+        return "please input the name of your diet found in the list"
+    elif diet_value == "no": ## not sure
+        break
+    else:
+    return "please input no if you are not on a diet, if you are, please input the name of your diet found in the list"
+    
+def allergy():
+    print("Do you have any food-related allergies? milk, eggs, nuts, soy, wheat, fish, shellfish")
+    allergy_food = [empty list]
+    milk_allergy = [list of milk food]
+    egg_allergy = [list of egg food]
+    nut_allergy = [list of nut food]
+    soy_allergy = [list of soy food]
+    wheat_allergy = [list of wheat food]
+    fish_allergy = [list of fish food]
+    shellfish_allergy = [list of shellfish food]
+    allergy_value = input
+    if allergy_value == "milk":
+        for i in milk_allergy:
+            if i in diet_food:
+                allergy_food.append(i)
+    elif allergy_value == "egg":
+        for i in egg_allergy:
+            if i in diet_food:
+                allergy_food.append(i)
+    elif allergy_value == "nut":
+        for i in nut_allergy:
+            if i in diet_food:
+                allergy_food.append(i)
+    elif allergy_value == "soy":
+        for i in soy_allergy:
+            if i in diet_food:
+                allergy_food.append(i)
+    elif allergy_value == "wheat":
+        for i in wheat_allergy:
+            if i in diet_food:
+                allergy_food.append(i)
+    elif allergy_value == "fish":
+        for i in fish_allergy:
+            if i in diet_food:
+                allergy_food.append(i)
+    elif allergy_value == "shellfish":
+        for i in shellfish_allergy:
+            if i in diet_food:
+                allergy_food.append(i)
+    elif allergy_value == "yes":
+        return "please input the name of your allergy found in the list"
+    elif allergy_value == "no":
+        break
+    else:
+        return "please input no if you do not have any allergies, if you do, please input the name of your allergy"
+    
+def spicy():
+    print("How spicy are you? - Sorry, I meant how spicy can you handle? Mild, Medium, Spicy, Nuclear")
+    spicy_food = [empty list]
+    mild_spicy = [list of mild food]
+    medium_spicy = [list of medium food]
+    spicy_spicy = [list of spicy food]
+    nuclear_spicy = [list of nuclear food]
+    spicy_value = input
+    if spicy_value == mild:
+        for i in mild_spicy:
+            if i in allergy_food:
+                spicy_food.append(i)
+    elif spicy_value == medium:
+        for i in medium_spicy:
+            if i in allergy_food:
+                spicy_food.append(i)
+    elif spicy_value == spicy:
+        for i in spicy_spicy:
+            if i in allergy_food:
+                spicy_food.append(i)
+    elif spicy_value == nuclear:
+        for i in nuclear_spicy:
+            if i in allergy_food:
+                spicy_food.append(i)
+    else: 
+        return "please input a level of spiciness (mild, medium, spicy, or nuclear)"
+        
+        
+#### random food generator within dictionary
+print(random.food.values())
